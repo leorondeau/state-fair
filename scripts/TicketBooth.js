@@ -1,12 +1,19 @@
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
-eventHub.addEventListener()
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "rideTicket") {
+        // console.log("button clicket" , clickEvent)
+        const rideEvent = new CustomEvent("rideTicketPurchased")
+        eventHub.dispatchEvent(rideEvent)
+
+    }
+})
 
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
-            Add button here
+             <button id="rideTicket">Ride Ticket</button>
         </div>
     `
 }
